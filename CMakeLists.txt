@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 project(Glitter)
 
 option(GLFW_BUILD_DOCS OFF)
-option(GLFW_BUILD_EXAMPLES OFF)
+option(GLFW_BUILD_EXAMPLES ON)
 option(GLFW_BUILD_TESTS OFF)
 add_subdirectory(Glitter/Vendor/glfw)
 
@@ -11,12 +11,13 @@ option(ASSIMP_BUILD_SAMPLES OFF)
 option(ASSIMP_BUILD_TESTS OFF)
 add_subdirectory(Glitter/Vendor/assimp)
 
-option(BUILD_BULLET2_DEMOS OFF)
-option(BUILD_CPU_DEMOS OFF)
-option(BUILD_EXTRAS OFF)
-option(BUILD_OPENGL3_DEMOS OFF)
-option(BUILD_UNIT_TESTS OFF)
+option(BUILD_BULLET2_DEMOS ON)
+option(BUILD_CPU_DEMOS ON)
+option(BUILD_EXTRAS ON)
+option(BUILD_OPENGL3_DEMOS ON)
+option(BUILD_UNIT_TESTS ON)
 add_subdirectory(Glitter/Vendor/bullet)
+
 
 if(MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
@@ -42,6 +43,8 @@ file(GLOB PROJECT_SHADERS Glitter/Shaders/*.comp
                           Glitter/Shaders/*.frag
                           Glitter/Shaders/*.geom
                           Glitter/Shaders/*.vert)
+						  
+						  
 file(GLOB PROJECT_CONFIGS CMakeLists.txt
                           Readme.md
                          .gitattributes
