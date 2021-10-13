@@ -1,4 +1,4 @@
-#ifndef RENDERENGINEPASSION
+ï»¿#ifndef RENDERENGINEPASSION
 #define RENDERENGINEPASSION
 
 #pragma once
@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-class RenderEnginePassion
+class RenderEnginePassion 
 {
 public:
 	static void SayPassion()
@@ -14,7 +14,7 @@ public:
 		std::cout << "*************************************" << std::endl;
 		std::cout << "Create GLFW window and OpenGL Context" << std::endl;
 		std::cout << "I Want be a Better Programmer to Create A Beautiful Game Engine for the World" << std::endl;
-		std::cout << "ÎÒÒªÎªÊÀ½ç´´½¨Ò»¸öÃÀÀöµÄÒýÇæ£¬Õ½¶·£¬Ñ§Ï°!" << std::endl;
+		std::cout << "æˆ‘è¦ä¸ºä¸–ç•Œåˆ›å»ºä¸€ä¸ªç¾Žä¸½çš„å¼•æ“Žï¼Œæˆ˜æ–—ï¼Œå­¦ä¹ !" << std::endl;
 		std::cout << "*************************************" << std::endl;
 	}
 };
