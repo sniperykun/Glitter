@@ -12,6 +12,7 @@
 #include <glad/glad.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 // Reference: https://github.com/nothings/stb/blob/master/stb_image.h#L4
 // To use stb_image, add this in *one* C++ source file.
@@ -19,12 +20,12 @@
 #include <stb_image.h>
 
 // Define Some Constants
-const int mWidth = 800;
-const int mHeight = 600;
-
+const int mWidth = 400;
+const int mHeight = 300;
 
 //
 // https://github.com/gulrak/filesystem
+// https://en.cppreference.com/w/cpp/filesystem
 // make interface for C++17 filesystem
 //
 

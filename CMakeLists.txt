@@ -34,16 +34,23 @@ include_directories(Glitter/Headers/
                     Glitter/Vendor/glad/include/
                     Glitter/Vendor/glfw/include/
                     Glitter/Vendor/glm/
-                    Glitter/Vendor/stb/)
+                    Glitter/Vendor/stb/
+					Glitter/CPPLearn/)
 
 file(GLOB VENDORS_SOURCES Glitter/Vendor/glad/src/glad.c)
-file(GLOB PROJECT_HEADERS Glitter/Headers/*.hpp)
+file(GLOB PROJECT_HEADERS Glitter/Headers/*.hpp
+						  Glitter/Headers/*.h)
+						  
 file(GLOB PROJECT_SOURCES Glitter/Sources/*.cpp)
 
 file(GLOB PROJECT_SHADERS Glitter/resources/shaders/*.comp
                           Glitter/resources/shaders/*.frag
                           Glitter/resources/shaders/*.geom
                           Glitter/resources/shaders/*.vert)
+						  
+file(GLOB CPP_LEARN_FILES Glitter/CPPLearn/*hpp
+					Glitter/CPPLearn/*cpp
+					Glitter/CPPLearn/*h)
 						  
 						  
 file(GLOB PROJECT_CONFIGS CMakeLists.txt
@@ -56,11 +63,12 @@ source_group("Headers" FILES ${PROJECT_HEADERS})
 source_group("Shaders" FILES ${PROJECT_SHADERS})
 source_group("Sources" FILES ${PROJECT_SOURCES})
 source_group("Vendors" FILES ${VENDORS_SOURCES})
+source_group("CPPLearn", FILES ${CPP_LEARN_FILES})
 
 add_definitions(-DGLFW_INCLUDE_NONE
                 -DPROJECT_SOURCE_DIR=\"${PROJECT_SOURCE_DIR}\")
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCES} ${PROJECT_HEADERS}
-                               ${PROJECT_SHADERS} ${PROJECT_CONFIGS}
+                               ${PROJECT_SHADERS} ${PROJECT_CONFIGS} ${CPP_LEARN_FILES}
                                ${VENDORS_SOURCES})
 target_link_libraries(${PROJECT_NAME} assimp glfw
                       ${GLFW_LIBRARIES} ${GLAD_LIBRARIES}
