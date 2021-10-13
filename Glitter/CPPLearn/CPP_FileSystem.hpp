@@ -52,7 +52,7 @@ public:
         // 64-bit 8
         // inputvertices:sizeof on array function parameter will return size of "float *"
         // instead of float[]
-        std::cout << sizeof(inputvertices) << std::endl;
+        // std::cout << sizeof(inputvertices) << std::endl;
 	}
 
 	void setUp()
@@ -61,7 +61,6 @@ public:
 		glGenBuffers(1, &VBO);
 		glBindVertexArray(VAO);
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		std::cout << "vertices count:" << verticecount << std::endl;
 		glBufferData(GL_ARRAY_BUFFER, verticecount, vertices, GL_STATIC_DRAW);
 
 		// 5 attributes(position and texture coord)

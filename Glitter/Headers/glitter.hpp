@@ -47,9 +47,10 @@ class GlitterPathConfig
 public:
 	static const std::string path_res_shader;
 	static const std::string path_res_model;
+    static const std::string path_res_textures;
 };
 
 const std::string GlitterPathConfig::path_res_shader = std::string(PROJECT_SOURCE_DIR) + "/resources/shaders/";
 const std::string GlitterPathConfig::path_res_model = std::string(PROJECT_SOURCE_DIR) + "/resources/models/";
-
+const std::string GlitterPathConfig::path_res_textures = std::string(PROJECT_SOURCE_DIR) + "/resources/textures/";
 #endif //~ Glitter Header
