@@ -7,9 +7,11 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include "glitter.hpp"
 
 //
 // From https://learnopengl.com/
+// Need to create new one
 //
 class Shader
 {
@@ -29,6 +31,9 @@ public:
 		fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
 		try
 		{
+			std::cout << "vertex shader path:" << vertexPath << std::endl;
+			std::cout << "fragment shader path:" << fragmentPath << std::endl;
+
 			// open files
 			vShaderFile.open(vertexPath);
 			fShaderFile.open(fragmentPath);

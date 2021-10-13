@@ -36,9 +36,15 @@ int main(int argc, char * argv[]) {
 	gladLoadGL();
 	std::cout << "OpenGL :" << glGetString(GL_VERSION) << std::endl;
 
+	// Working path
+	std::cout << "Current Path:" << fs::current_path() << std::endl;
+	std::string path = GlitterPathConfig::path_res_shader;
+	std::cout << "Source path:" << path << std::endl;
 	// ------------------------------------
-	// Shader ourShader("3.3.shader.vs", "3.3.shader.fs"); // you can name your shader files however you like
 
+	std::string vspath = path + "simple.vert";
+	std::string fspath = path + "simple.frag";
+	Shader ourShader(vspath.c_str(), fspath.c_str());
 
 	float vertices[] = {
 		// positions         // colors
@@ -63,7 +69,6 @@ int main(int argc, char * argv[]) {
 	glEnableVertexAttribArray(1);
 	// ------------------------------------
 
-
 	// Rendering Loop
 	while (glfwWindowShouldClose(mWindow) == false) {
 		if (glfwGetKey(mWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS)
@@ -73,11 +78,11 @@ int main(int argc, char * argv[]) {
 		glClearColor(0.25f, 0.25f, 0.25f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-
 		// ------------------------------------
-		
+		ourShader.use();
+		glBindVertexArray(VAO);
+		glDrawArrays(GL_TRIANGLES, 0, 3);
 		// ------------------------------------
-
 
 		// Flip Buffers and Draw
 		glfwSwapBuffers(mWindow);

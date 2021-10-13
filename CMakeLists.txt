@@ -39,10 +39,11 @@ include_directories(Glitter/Headers/
 file(GLOB VENDORS_SOURCES Glitter/Vendor/glad/src/glad.c)
 file(GLOB PROJECT_HEADERS Glitter/Headers/*.hpp)
 file(GLOB PROJECT_SOURCES Glitter/Sources/*.cpp)
-file(GLOB PROJECT_SHADERS Glitter/Shaders/*.comp
-                          Glitter/Shaders/*.frag
-                          Glitter/Shaders/*.geom
-                          Glitter/Shaders/*.vert)
+
+file(GLOB PROJECT_SHADERS Glitter/resources/shaders/*.comp
+                          Glitter/resources/shaders/*.frag
+                          Glitter/resources/shaders/*.geom
+                          Glitter/resources/shaders/*.vert)
 						  
 						  
 file(GLOB PROJECT_CONFIGS CMakeLists.txt
@@ -67,7 +68,7 @@ target_link_libraries(${PROJECT_NAME} assimp glfw
 set_target_properties(${PROJECT_NAME} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME})
 
-add_custom_command(
-    TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/Glitter/Shaders $<TARGET_FILE_DIR:${PROJECT_NAME}>
-    DEPENDS ${PROJECT_SHADERS})
+# add_custom_command(
+    # TARGET ${PROJECT_NAME} POST_BUILD
+    # COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/Glitter/Shaders $<TARGET_FILE_DIR:${PROJECT_NAME}>
+    # DEPENDS ${PROJECT_SHADERS})
