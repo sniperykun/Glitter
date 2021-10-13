@@ -70,6 +70,9 @@ public:
     // returns the view matrix calculated using Euler Angles and the LookAt Matrix
     glm::mat4 GetViewMatrix()
     {
+        // 1. position
+        // 2. dir
+        // 3. up
         return glm::lookAt(Position, Position + Front, Up);
     }
     
@@ -136,6 +139,9 @@ public:
     
 private:
     // calculates the front vector from the Camera's (updated) Euler Angles
+    // 1. forward
+    // 2. right
+    // 3. up
     void updateCameraVectors()
     {
         // calculate the new Front vector
