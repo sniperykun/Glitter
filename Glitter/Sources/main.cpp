@@ -147,9 +147,7 @@ int main(int argc, char * argv[]) {
 	};
 
 	std::cout << sizeof(vertices) << std::endl;
-
 	std::vector<CubeModel> models;
-	int cubesize = sizeof(cubePositions) / sizeof(glm::vec3);
 	for (glm::vec3 item : cubePositions)
 	{
 		CubeModel cube(item, vertices, sizeof(vertices));
@@ -214,9 +212,7 @@ int main(int argc, char * argv[]) {
 
 	// Rendering Loop
 	while (glfwWindowShouldClose(mWindow) == false) {
-		//if (glfwGetKey(mWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-		//	glfwSetWindowShouldClose(mWindow, true);
-
+        
 		// per-frame time logic
 		// --------------------
 		float currentFrame = glfwGetTime();
@@ -276,6 +272,10 @@ void processInput(GLFWwindow *window)
 		camera.ProcessKeyboard(LEFT, deltaTime);
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 		camera.ProcessKeyboard(RIGHT, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+        camera.ProcessKeyboard(UP, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+        camera.ProcessKeyboard(DOWN, deltaTime);
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes

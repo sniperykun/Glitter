@@ -1,4 +1,4 @@
-﻿#ifndef CPP_FILESYSTEM_H
+#ifndef CPP_FILESYSTEM_H
 #define CPP_FILESYSTEM_H
 
 #include "glitter.hpp"
@@ -19,6 +19,18 @@ class CPP_FileSystemSample
 
 	//cout << fs::exists(executePath) << endl;
 	//cout << fs::is_directory(executePath) << endl;
+    
+//    float floatarray[10];
+//    int myint = 100;
+//    std::cout << "input vertices count:" << verticecount << std::endl;
+//    std::cout << sizeof(int) << std::endl;
+//    std::cout << sizeof(float) << std::endl;
+//    std::cout << sizeof(floatarray) << std::endl;
+//    std::cout << sizeof(floatarray[0]) << std::endl;
+//    std::cout << sizeof(&(floatarray[0])) << std::endl;
+//    std::cout << sizeof(&floatarray[0]) << std::endl;
+//    std::cout << sizeof(&myint) << std::endl;
+//    std::cout << sizeof(int*) << std::endl;
 };
 
 class CubeModel
@@ -26,8 +38,6 @@ class CubeModel
 private:
 	unsigned int VBO;
 	unsigned int VAO;
-	unsigned int texture1;
-	unsigned int texture2;
 	glm::vec3 position;
 	float *vertices;
 	int verticecount;
@@ -38,73 +48,21 @@ public:
 		position = inputpos;
 		vertices = inputvertices;
 		verticecount = len;
+        
+        // 64-bit 8
+        // inputvertices:sizeof on array function parameter will return size of "float *"
+        // instead of float[]
+        std::cout << sizeof(inputvertices) << std::endl;
 	}
 
 	void setUp()
 	{
-		float cubevertices[] = {
-		-0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-		 0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
-		 0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-		 0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-		-0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-
-		-0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-		 0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-		 0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-		 0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-		-0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
-		-0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-
-		-0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-		-0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-		-0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-		-0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-
-		 0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-		 0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-		 0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-		 0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-		 0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-		 0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-
-		-0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-		 0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
-		 0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-		 0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-		-0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-		-0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-
-		-0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-		 0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-		 0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-		 0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-		-0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
-		-0.5f,  0.5f, -0.5f,  0.0f, 1.0f
-		};
-
-		float floatarray[10];
-		int myint = 100;
-		std::cout << "input vertices count:" << verticecount << std::endl;
-		std::cout << sizeof(int) << std::endl;
-		std::cout << sizeof(float) << std::endl;
-		std::cout << sizeof(floatarray) << std::endl;
-		std::cout << sizeof(floatarray[0]) << std::endl;
-		std::cout << sizeof(&(floatarray[0])) << std::endl;
-		std::cout << sizeof(&floatarray[0]) << std::endl;
-		std::cout << sizeof(&myint) << std::endl;
-		std::cout << sizeof(int*) << std::endl;
-
 		glGenVertexArrays(1, &VAO);
 		glGenBuffers(1, &VBO);
 		glBindVertexArray(VAO);
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
 		std::cout << "vertices count:" << verticecount << std::endl;
-		std::cout << "cube vertices count:" << sizeof(cubevertices) << std::endl;
-		glBufferData(GL_ARRAY_BUFFER, verticecount, cubevertices, GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, verticecount, vertices, GL_STATIC_DRAW);
 
 		// 5 attributes(position and texture coord)
 		// input vertex layout
