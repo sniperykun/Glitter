@@ -35,13 +35,19 @@ include_directories(Glitter/Headers/
                     Glitter/Vendor/glfw/include/
                     Glitter/Vendor/glm/
                     Glitter/Vendor/stb/
-					Glitter/CPPLearn/)
+					Glitter/CPPLearn/
+					Glitter/Samples/Headers/)
 
 file(GLOB VENDORS_SOURCES Glitter/Vendor/glad/src/glad.c)
 file(GLOB PROJECT_HEADERS Glitter/Headers/*.hpp
 						  Glitter/Headers/*.h)
 						  
 file(GLOB PROJECT_SOURCES Glitter/Sources/*.cpp)
+
+file(GLOB PROJECT_SAMPLE_SOURCES Glitter/Samples/Sources/*cpp)
+
+file(GLOB PROJECT_SAMPLE_HEADERS Glitter/Samples/Headers/*.h
+								 Glitter/Samples/Headers/*hpp)
 
 file(GLOB PROJECT_SHADERS Glitter/resources/shaders/*.comp
                           Glitter/resources/shaders/*.frag
@@ -64,12 +70,14 @@ source_group("Shaders" FILES ${PROJECT_SHADERS})
 source_group("Sources" FILES ${PROJECT_SOURCES})
 source_group("Vendors" FILES ${VENDORS_SOURCES})
 source_group("CPPLearn", FILES ${CPP_LEARN_FILES})
+source_group("Samples" FILES ${PROJECT_SAMPLE_HEADERS})
+source_group("Samples" FILES ${PROJECT_SAMPLE_SOURCES})
 
 add_definitions(-DGLFW_INCLUDE_NONE
                 -DPROJECT_SOURCE_DIR=\"${PROJECT_SOURCE_DIR}\")
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCES} ${PROJECT_HEADERS}
                                ${PROJECT_SHADERS} ${PROJECT_CONFIGS} ${CPP_LEARN_FILES}
-                               ${VENDORS_SOURCES})
+                               ${VENDORS_SOURCES} ${PROJECT_SAMPLE_HEADERS} ${PROJECT_SAMPLE_SOURCES})
 target_link_libraries(${PROJECT_NAME} assimp glfw
                       ${GLFW_LIBRARIES} ${GLAD_LIBRARIES}
                       BulletDynamics BulletCollision LinearMath)

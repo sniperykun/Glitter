@@ -14,6 +14,10 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+// System Headers
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
 // Reference: https://github.com/nothings/stb/blob/master/stb_image.h#L4
 // To use stb_image, add this in *one* C++ source file.
 //     #define STB_IMAGE_IMPLEMENTATION
@@ -98,4 +102,5 @@ const float GlitterConfig::data_cube_vertices[] = {
 	-1.0f, 1.0f, -1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, // top-left
 	-1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f  // bottom-left        
 };
+
 #endif //~ Glitter Header

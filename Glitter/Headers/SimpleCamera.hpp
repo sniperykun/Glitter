@@ -20,7 +20,7 @@ enum Camera_Movement {
 	RIGHT
 };
 
-class Camera
+class SimpleCamera
 {
 public:
 	// Default camera values
@@ -52,7 +52,7 @@ public:
 	float ShiftFactor;
 
 	// constructor with vectors
-	Camera(
+	SimpleCamera(
 		glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f),
 		glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f),
 		float yaw = YAW,
@@ -65,7 +65,7 @@ public:
 		updateCameraVectors();
 	}
 	// constructor with scalar values
-	Camera(float posX, float posY, float posZ,
+	SimpleCamera(float posX, float posY, float posZ,
 		float upX, float upY, float upZ,
 		float yaw, float pitch) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM), ShiftFactor(1.0f)
 	{
@@ -166,11 +166,11 @@ private:
 	}
 };
 
-const float Camera::YAW = -90.0f;
-const float Camera::PITCH = 0.0f;
-const float Camera::SPEED = 2.5f;
-const float Camera::SENSITIVITY = 0.1f;
-const float Camera::ZOOM = 45.0f;
-const float Camera::SHIFTFACTOR = 3.0f;
+const float SimpleCamera::YAW = -90.0f;
+const float SimpleCamera::PITCH = 0.0f;
+const float SimpleCamera::SPEED = 2.5f;
+const float SimpleCamera::SENSITIVITY = 0.1f;
+const float SimpleCamera::ZOOM = 45.0f;
+const float SimpleCamera::SHIFTFACTOR = 3.0f;
 
 #endif // !CAMERA_H
