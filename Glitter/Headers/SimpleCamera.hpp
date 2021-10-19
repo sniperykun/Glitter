@@ -166,11 +166,4 @@ private:
 	}
 };
 
-const float SimpleCamera::YAW = -90.0f;
-const float SimpleCamera::PITCH = 0.0f;
-const float SimpleCamera::SPEED = 2.5f;
-const float SimpleCamera::SENSITIVITY = 0.1f;
-const float SimpleCamera::ZOOM = 45.0f;
-const float SimpleCamera::SHIFTFACTOR = 3.0f;
-
 #endif // !CAMERA_H

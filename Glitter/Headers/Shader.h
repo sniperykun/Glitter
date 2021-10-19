@@ -7,7 +7,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
-#include "glitter.hpp"
+// #include "glitter.hpp"
 
 //
 // From https://learnopengl.com/

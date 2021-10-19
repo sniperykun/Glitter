@@ -13,6 +13,22 @@
 #include <iostream>
 using namespace std;
 
+// Define Some Constants
+const int mWidth = 400;
+const int mHeight = 300;
+
+const std::string path_res_shader = std::string(PROJECT_SOURCE_DIR) + "/resources/shaders/";
+const std::string path_res_model = std::string(PROJECT_SOURCE_DIR) + "/resources/models/";
+const std::string path_res_textures = std::string(PROJECT_SOURCE_DIR) + "/resources/textures/";
+
+const float SimpleCamera::YAW = -90.0f;
+const float SimpleCamera::PITCH = 0.0f;
+const float SimpleCamera::SPEED = 2.5f;
+const float SimpleCamera::SENSITIVITY = 0.1f;
+const float SimpleCamera::ZOOM = 45.0f;
+const float SimpleCamera::SHIFTFACTOR = 3.0f;
+
+
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
@@ -72,15 +88,20 @@ int main(int argc, char * argv[]) {
 	}
 	std::cout << std::endl;
 	std::cout << "Current Work Path:" << fs::current_path() << std::endl;
-	std::string path = GlitterConfig::path_res_shader;
+	std::string path = path_res_shader;
 	std::cout << "Resources path:" << path << std::endl;
 
 	// configure global opengl state
 	// -----------------------------
 	glEnable(GL_DEPTH_TEST);
 
+
+	// tell stb_image.h to flip loaded texture's on the y-axis (before loading model).
+	stbi_set_flip_vertically_on_load(true);
+
 	BaseSample *sample = NULL;
-	sample = new Sample_CubeRender();
+	// sample = new Sample_CubeRender();
+	sample = new Sample_LoadModel();
 	sample->setup(argc, argv);
 
 	// Rendering Loop
@@ -111,6 +132,7 @@ int main(int argc, char * argv[]) {
 
 	// sample shutdown
 	sample->shutdown();
+	delete sample;
 
 	glfwTerminate();
 	std::cout << "Exit GLFW Window " << std::endl;
