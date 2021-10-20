@@ -220,6 +220,12 @@ void Sample_Lighting::render(SimpleCamera& camera, float time)
 
 bool Sample_Lighting::shutdown()
 {
+	glDeleteVertexArrays(1, &cubeVAO);
+	glDeleteVertexArrays(1, &lightCubeVAO);
+	glDeleteBuffers(1, &VBO);
+	glDeleteTextures(1, &diffuseMap);
+	glDeleteTextures(1, &specularMap);
+
 	delete m_CubeShader;
 	delete m_LightCubeShader;
 	return true;

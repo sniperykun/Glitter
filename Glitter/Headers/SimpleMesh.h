@@ -48,6 +48,9 @@ public:
 		this->m_Indices = indices;
 		this->m_Textures = textures;
 
+		// output textures
+		for (unsigned int i = 0; i < m_Textures.size(); i++)
+			cout << "texture:" << m_Textures[i].id << "," << m_Textures[i].type << "," << m_Textures[i].path << endl;
 		setupMesh();
 	}
 

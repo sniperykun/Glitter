@@ -15,8 +15,8 @@ bool Sample_LoadModel::setup(int argc, char * argv[])
 	m_Model = new SimpleModel(modelpath);
 	// init shaders
 	std::string path = path_res_shader;
-	std::string vspath = path + "sample_load_model.vert";
-	std::string fspath = path + "sample_load_model.frag";
+	std::string vspath = path + "sample_load_model_light.vert";
+	std::string fspath = path + "sample_load_model_light.frag";
 	m_RenderShader = new Shader(vspath.c_str(), fspath.c_str());
 	return true;
 }
@@ -38,6 +38,18 @@ void Sample_LoadModel::render(SimpleCamera& camera, float time)
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
 		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));	// it's a bit too big for our scene, so scale it down
 		m_RenderShader->setMat4("model", model);
+
+		// set light input params
+		m_RenderShader->setVec3("viewPos", camera.Position);
+
+		// directional light
+		m_RenderShader->setVec3("dirLight.direction", -0.2f, -1.0f, -0.3f);
+		// m_RenderShader->setVec3("dirLight.ambient", 0.05f, 0.05f, 0.05f);
+		m_RenderShader->setVec3("dirLight.ambient", 1.0f, 1.0f, 1.0f);
+		//m_RenderShader->setVec3("dirLight.diffuse", 0.4f, 0.4f, 0.4f);
+		// m_RenderShader->setVec3("dirLight.specular", 0.5f, 0.5f, 0.5f);
+		m_RenderShader->setVec3("dirLight.specular", 0.5f, 0.5f, 0.5f);
+		m_RenderShader->setFloat("shininess", 32.0f);
 
 		m_Model->Draw((*m_RenderShader));
 	}

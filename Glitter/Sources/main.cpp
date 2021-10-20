@@ -136,8 +136,8 @@ int main(int argc, char * argv[]) {
 
 	BaseSample *sample = NULL;
 	// sample = new Sample_CubeRender();
-	// sample = new Sample_LoadModel();
-	sample = new Sample_Lighting();
+	sample = new Sample_LoadModel();
+	// sample = new Sample_Lighting();
 	sample->setup(argc, argv);
 
 	// Rendering Loop
