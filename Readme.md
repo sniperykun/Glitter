@@ -1,5 +1,9 @@
-# [Glitter](http://polytonic.github.io/Glitter/)
-![Screenshot](http://i.imgur.com/MDo2rsy.jpg)
+# OpenGL Learning Project
+
+1. [learnopengl.com](http://www.learnopengl.com)
+2. [open.gl](https://open.gl)
+3. [Glitter](https://github.com/Polytonic/Glitter) Fork From Glitter Project
+
 
 ## Summary
 Glitter is a dead simple boilerplate for OpenGL, intended as a starting point for the tutorials on [learnopengl.com](http://www.learnopengl.com) and [open.gl](https://open.gl). Glitter compiles and statically links every required library, so you can jump right into doing what you probably want: how to get started with OpenGL.
@@ -22,9 +26,28 @@ cmake ..
 # Mac OSX
 cmake -G "Xcode" ..
 
-# Microsoft Windows
-cmake -G "Visual Studio 14" ..
-cmake -G "Visual Studio 14 Win64" ..
+# Microsoft Windows Vistual Studio
+cmake -G "Visual Studio 14" ..  // win32 Visual Studio 2015
+cmake -G "Visual Studio 14 Win64" .. // win64 Visual Studio 2015
+
+/*
+  Visual Studio 17 2022        = Generates Visual Studio 2022 project files.
+                                 Use -A option to specify architecture.
+  Visual Studio 16 2019        = Generates Visual Studio 2019 project files.
+                                 Use -A option to specify architecture.
+* Visual Studio 15 2017 [arch] = Generates Visual Studio 2017 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 14 2015 [arch] = Generates Visual Studio 2015 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 12 2013 [arch] = Generates Visual Studio 2013 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 11 2012 [arch] = Generates Visual Studio 2012 project files.
+                                 Optional [arch] can be "Win64" or "ARM".
+  Visual Studio 10 2010 [arch] = Generates Visual Studio 2010 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+  Visual Studio 9 2008 [arch]  = Generates Visual Studio 2008 project files.
+                                 Optional [arch] can be "Win64" or "IA64".
+*/
 ...
 ```
 

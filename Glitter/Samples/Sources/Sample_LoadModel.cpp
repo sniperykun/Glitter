@@ -13,7 +13,7 @@ bool Sample_LoadModel::setup(int argc, char * argv[])
 	modelpath = modelpath + +"backpack/backpack.obj";
 
 	m_Model = new SimpleModel(modelpath);
-	// init shader
+	// init shaders
 	std::string path = path_res_shader;
 	std::string vspath = path + "sample_load_model.vert";
 	std::string fspath = path + "sample_load_model.frag";
