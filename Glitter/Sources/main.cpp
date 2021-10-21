@@ -33,8 +33,7 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void processInput(GLFWwindow *window);
 
-
-int g_LoadTexture(char const *path)
+unsigned int g_LoadTexture(char const *path)
 {
 	unsigned int textureID;
 	glGenTextures(1, &textureID);
@@ -59,6 +58,9 @@ int g_LoadTexture(char const *path)
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+		glBindTexture(GL_TEXTURE_2D, 0);
+
 	}
 	else
 	{
@@ -89,7 +91,7 @@ int main(int argc, char * argv[]) {
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
 	auto mWindow = glfwCreateWindow(mWidth, mHeight, "OpenGL", nullptr, nullptr);
-	RenderEnginePassion::SayPassion();
+	// RenderEnginePassion::SayPassion();
 
 	// Check for Valid Context
 	if (mWindow == nullptr) {

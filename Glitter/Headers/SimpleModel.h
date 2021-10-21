@@ -35,14 +35,20 @@ public:
 	SimpleModel(string const &path, bool gamma = false) : gammaCorrection(gamma)
 	{
 		LoadModel(path);
+		cout << "sub mesh count:" << m_SubMeshes.size() << endl;
+	}
+
+	void SetUpTextures(std::vector<Texture> &input)
+	{
+		m_Textures_Loaded = input;
+		for (unsigned int i = 0; i < m_SubMeshes.size(); i++)
+			m_SubMeshes[i].SetUpTextures(m_Textures_Loaded);
 	}
 
 	void Draw(Shader& shader)
 	{
 		for (unsigned int i = 0; i < m_SubMeshes.size(); i++)
-		{
 			m_SubMeshes[i].Draw(shader);
-		}
 	}
 
 private:
@@ -52,7 +58,7 @@ private:
 	void LoadModel(string const &path)
 	{
 		Assimp::Importer importer;
-		const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
+		const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_CalcTangentSpace);
 		// check for errors
 		if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) // if is Not Zero
 		{

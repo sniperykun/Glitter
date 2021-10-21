@@ -21,6 +21,13 @@ extern const std::string path_res_shader;
 extern const std::string path_res_model;
 extern const std::string path_res_textures;
 
-extern int g_LoadTexture(char const *path);
+extern unsigned int g_LoadTexture(char const *path);
+
+enum Render_Texture_Type
+{
+	Render_Texture_DIFFUSE,
+	Render_Texture_NORMALS,
+	Render_Texture_SPECULAR
+};
 
 #endif // !COMMON_H

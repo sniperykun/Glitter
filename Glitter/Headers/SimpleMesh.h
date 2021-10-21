@@ -47,11 +47,18 @@ public:
 		this->m_Vertices = vertices;
 		this->m_Indices = indices;
 		this->m_Textures = textures;
-
+		cout << "texture size:" << textures.size() << endl;
 		// output textures
 		for (unsigned int i = 0; i < m_Textures.size(); i++)
 			cout << "texture:" << m_Textures[i].id << "," << m_Textures[i].type << "," << m_Textures[i].path << endl;
 		setupMesh();
+	}
+
+	void SetUpTextures(std::vector<Texture> &input)
+	{
+		m_Textures = input;
+		for (unsigned int i = 0; i < m_Textures.size(); i++)
+			cout << "SetUpTextures::texture:" << m_Textures[i].id << "," << m_Textures[i].type << "," << m_Textures[i].path << endl;
 	}
 
 	// draw mesh
@@ -77,7 +84,7 @@ public:
 			{
 				number = std::to_string(specularNumber++);
 			}
-			else if (name == "textue_normal")
+			else if (name == "texture_normal")
 			{
 				number = std::to_string(normalNumber++);
 			}
