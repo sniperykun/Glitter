@@ -86,6 +86,10 @@ public:
 		// sizeof 8 float [0,0,0|0,0,0|0,0]
 		// input vertex layout
 		// position attribute
+
+		// 1. vertex position position(0)
+		// 2. vertex color position(1)
+		// 3. vertex coords position(2)
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
 
