@@ -130,6 +130,7 @@ public:
 	// ------------------------------------------------------------------------
 	void setMat2(const std::string &name, const glm::mat2 &mat) const
 	{
+		// first element's address &mat[0][0]
 		glUniformMatrix2fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, &mat[0][0]);
 	}
 	// ------------------------------------------------------------------------

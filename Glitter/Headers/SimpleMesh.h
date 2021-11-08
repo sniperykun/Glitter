@@ -27,6 +27,7 @@ struct Vertex {
 };
 
 struct Texture {
+	// GL Texture Id
 	unsigned int id;
 	string type;
 	string path;

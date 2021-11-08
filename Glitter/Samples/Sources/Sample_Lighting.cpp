@@ -110,6 +110,9 @@ bool Sample_Lighting::setup(int argc, char * argv[])
 	specularMap = g_LoadTexture(texture2path.c_str());
 
 	m_CubeShader->use();
+	// set texture uniform position
+	// 0 -> GL_TEXTURE0
+	// 1 -> GL_TEXTURE1
 	m_CubeShader->setInt("material.diffuse", 0);
 	m_CubeShader->setInt("material.specular", 1);
 	return true;
